@@ -1,11 +1,15 @@
 <template>
-    <div class="notes-list">
-        <ul>
-            <template for:each={notes} for:item="note">
-                <li key={note.id}>
-                    <c-note-card note={note}></c-note-card>
-                </li>
-            </template>
-        </ul>
+  <div class="notes-list">
+    <div if:false={done}>
+      <c-note-card note={note}></c-note-card>
+
+      <lightning-button-icon
+        icon-name="utility:chevronright"
+        alternative-text="Next"
+        title="Next"
+        onclick={getNextNote}
+      >
+      </lightning-button-icon>
     </div>
+  </div>
 </template>
