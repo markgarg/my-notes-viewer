@@ -1,0 +1,11 @@
+<template>
+    <div class="notes-list">
+        <ul>
+            <template for:each={notes} for:item="note">
+                <li key={note.id}>
+                    <c-note-card note={note}></c-note-card>
+                </li>
+            </template>
+        </ul>
+    </div>
+</template>
