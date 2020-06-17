@@ -1,6 +1,7 @@
-import { LightningElement } from 'lwc';
-import { notesGenerator } from './notesIterator';
+import { LightningElement } from "lwc";
+import { notesGenerator, getNotes } from "./notesIterator";
 
 export default class TestNotes extends LightningElement {
-    notesGenerator = notesGenerator();
+  notesGenerator = notesGenerator();
+  notes = getNotes();
 }

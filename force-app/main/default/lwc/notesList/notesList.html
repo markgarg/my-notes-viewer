@@ -1,9 +1,21 @@
 <template>
   <div class="notes-list">
-    <div if:false={done}>
-      <c-note-card note={note}></c-note-card>
+    <c-note-card note={note}></c-note-card>
 
+    <div if:false={noPreviousNote}>
       <lightning-button-icon
+        class="slds-float_left"
+        icon-name="utility:chevronleft"
+        alternative-text="Previous"
+        title="Previous"
+        onclick={getPreviousNote}
+      >
+      </lightning-button-icon>
+    </div>
+
+    <div if:false={noNextNote}>
+      <lightning-button-icon
+        class="slds-float_right"
         icon-name="utility:chevronright"
         alternative-text="Next"
         title="Next"

@@ -1,21 +1,35 @@
-import { LightningElement, api } from 'lwc';
+import { LightningElement, api } from "lwc";
 
 export default class NotesList extends LightningElement {
-    @api notesiterator;
-    note;
-    done;
+  @api notes;
+  note;
+  done;
+  index = -1;
 
-    connectedCallback() {
-        // initialize component
-        this.note = this.notesiterator.next().value;
-    }
+  connectedCallback() {
+    // initialize component
+    this.getNextNote();
+    console.log("notes :" + JSON.stringify(this.notes));
+  }
 
-    getNextNote() {
-        if(this.done)
-            return;
-        const nextItem = this.notesiterator.next();
-        this.note = nextItem.value;
-        this.done = nextItem.done;
-        console.log(`${this.done}`);
-    }
+  getNextNote() {
+    this.note = this.notes[++this.index];
+    console.log(`index :${this.index}`);
+  }
+
+  getPreviousNote() {
+    this.note = this.notes[--this.index];
+  }
+
+  size() {
+    return this.notes.length;
+  }
+
+  get noPreviousNote() {
+    return this.index === 0;
+  }
+
+  get noNextNote() {
+    return this.index === this.size() - 1;
+  }
 }
