@@ -3,7 +3,6 @@ import { LightningElement, api } from "lwc";
 export default class NotesList extends LightningElement {
   @api notes;
   note;
-  done;
   index = -1;
 
   connectedCallback() {
@@ -14,7 +13,6 @@ export default class NotesList extends LightningElement {
 
   getNextNote() {
     this.note = this.notes[++this.index];
-    console.log(`index :${this.index}`);
   }
 
   getPreviousNote() {
