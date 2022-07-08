@@ -1,6 +1,8 @@
 <template>
   <div class="notes-list">
-    <c-note-card note={note}></c-note-card>
+    <template if:true={noteExists}>
+      <c-note-card note={note}></c-note-card>
+    </template>
 
     <div if:false={noPreviousNote}>
       <lightning-button-icon

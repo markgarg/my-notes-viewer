@@ -2,25 +2,22 @@ import { LightningElement, api } from "lwc";
 
 export default class NotesList extends LightningElement {
   @api notes;
-  note;
-  index = -1;
+  index = 0;
 
-  connectedCallback() {
-    // initialize component
-    this.getNextNote();
-    console.log("notes :" + JSON.stringify(this.notes));
+  get note() {
+    return (this.notes ? this.notes[this.index] : null);
   }
 
   getNextNote() {
-    this.note = this.notes[++this.index];
+    this.index++;
   }
 
   getPreviousNote() {
-    this.note = this.notes[--this.index];
+    this.index--;
   }
 
   size() {
-    return this.notes.length;
+    return (this.notes ? this.notes.length : 0);
   }
 
   get noPreviousNote() {
@@ -28,6 +25,10 @@ export default class NotesList extends LightningElement {
   }
 
   get noNextNote() {
-    return this.index === this.size() - 1;
+    return this.index === (this.size() - 1);
+  }
+  
+  get noteExists() {
+    return this.note != null;
   }
 }

@@ -1,7 +1,7 @@
 <template>
     <lightning-card icon-name="custom:custom14">
-        <div class="description slds-p-horizontal_medium slds-p-bottom_medium">
-            {note.description}
+        <div class="slds-p-horizontal_medium slds-p-bottom_medium slds-text-align_center">
+            <lightning-formatted-rich-text value={note.Text__c}></lightning-formatted-rich-text>
         </div>
     </lightning-card>
 </template>
