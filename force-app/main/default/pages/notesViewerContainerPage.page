@@ -1,29 +1,32 @@
-<apex:page standardStylesheets="false"
-	applyBodyTag="false"
-	doctype="HTML-5.0"
-	showheader="false"
-	sidebar="false"
+<apex:page
+  standardStylesheets="false"
+  applyBodyTag="false"
+  doctype="HTML-5.0"
+  showheader="false"
+  sidebar="false"
 >
-	<html lang="en">
-		<head>
-			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		</head>
-		<body>
-			<apex:includeLightning />
-			<div id="content">
-				<div id="lightningComponent" />
-			</div>
+  <html lang="en">
+    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+      <apex:includeLightning />
+      <div id="content">
+        <div id="lightningComponent" />
+      </div>
 
-			<script type="text/javascript">
-                $Lightning.use("c:NotesViewerApp", function() {
-                    $Lightning.createComponent("c:notesViewerHome",
-                    {},
-                    "lightningComponent",
-                    function(cmp) {
-                        console.log('LWC Component added in VF page');
-                    });
-                });
-			</script>
-		</body>
-	</html>
+      <script type="text/javascript">
+        $Lightning.use("c:NotesViewerApp", function () {
+          $Lightning.createComponent(
+            "c:notesViewerHome",
+            {},
+            "lightningComponent",
+            function (cmp) {
+              console.log("LWC Component added in VF page");
+            }
+          );
+        });
+      </script>
+    </body>
+  </html>
 </apex:page>

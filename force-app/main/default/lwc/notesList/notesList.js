@@ -5,7 +5,7 @@ export default class NotesList extends LightningElement {
   index = 0;
 
   get note() {
-    return (this.notes ? this.notes[this.index] : null);
+    return this.notes ? this.notes[this.index] : null;
   }
 
   getNextNote() {
@@ -17,7 +17,7 @@ export default class NotesList extends LightningElement {
   }
 
   size() {
-    return (this.notes ? this.notes.length : 0);
+    return this.notes ? this.notes.length : 0;
   }
 
   get noPreviousNote() {
@@ -25,9 +25,9 @@ export default class NotesList extends LightningElement {
   }
 
   get noNextNote() {
-    return this.index === (this.size() - 1);
+    return this.index === this.size() - 1;
   }
-  
+
   get noteExists() {
     return this.note != null;
   }

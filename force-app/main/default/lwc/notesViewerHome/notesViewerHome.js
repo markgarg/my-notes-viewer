@@ -7,13 +7,13 @@ export default class NotesViewerHome extends LightningElement {
   notes;
 
   @wire(getAllNotes)
-	getNotes({error, data}) {
-		if (data) {
-			this.notes = data;
-			this.error = undefined;
-		} else if (error) {
-			this.error = error;
-			this.notes = undefined;
-		}
-	}
+  getNotes({ error, data }) {
+    if (data) {
+      this.notes = data;
+      this.error = undefined;
+    } else if (error) {
+      this.error = error;
+      this.notes = undefined;
+    }
+  }
 }
